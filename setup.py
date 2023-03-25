@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='address_name_system',
-version='0.1.1',
+version='0.1.2',
 description="""Mapping Addresses to Dynamic IPs, Simplified""",
 long_description_content_type="text/markdown",
 include_package_data=True,
@@ -13,7 +13,9 @@ author_email='onur.atakan.ulusoy@naruno.org',
 license='MIT',
 packages=["address_name_system"],
 package_dir={'':'src'},
-install_requires="".join(open("requirements.txt", encoding="utf-8").readlines()),
+install_requires=[
+    "fire==0.5.0"
+],
 entry_points = {
     'console_scripts': ['ans=address_name_system.address_name_system:main'],
 },
