@@ -7,7 +7,7 @@ import pickle
 import contextlib
 
 import time
-
+import fire
 
 class ans:
     def __init__(self, password, encrypt_key=None, trusted_users=[], self_ip_cache_time=3600, ip_cache_time=360, port=8000):
@@ -101,3 +101,6 @@ class ans:
 
     def close(self):
         self.integration.close()
+
+def main():
+    fire.Fire(ans)

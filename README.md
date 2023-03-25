@@ -39,6 +39,11 @@ my_ans_server.add_user("client_address")
 my_ans_server.run()
 ```
 
+also you can use in command line:
+```console	
+ans --password MyNarunoPass --encrypt_key "mystrongencrypt_key" --trusted_users ["client_address"] run
+```
+
 ### Client
 To use ANS, you can call the ans.ip function with your blockchain address as the parameter:
 
@@ -47,12 +52,18 @@ from address_name_system import ans
 
 my_ans_client = ans("MyNarunoPass")
 
-ip_address = my_ans_client.ip("server_address", "mystrongpass")
+ip_address = my_ans_client.ip("server_address", "mystrongencrypt_key")
 
 print(ip_address)
 
 my_ans_client.close()
 ```
+
+also you can use in command line:
+```console	
+ans --password "MyNarunoPass" ip "server_address" "mystrongencrypt_key"
+```
+
 
 This will return the dynamic IP address associated with your blockchain address.
 

@@ -12,8 +12,9 @@ author_email='onur.atakan.ulusoy@naruno.org',
 license='MIT',
 packages=["address_name_system"],
 package_dir={'':'src'},
+install_requires="".join(open("requirements.txt", encoding="utf-8").readlines()),
 entry_points = {
-    'console_scripts': ['mysystemmonitor=mysystemmonitor.mysystemmonitor:main'],
+    'console_scripts': ['ans=address_name_system.address_name_system:main'],
 },
 python_requires=">= 3",
 zip_safe=False)
