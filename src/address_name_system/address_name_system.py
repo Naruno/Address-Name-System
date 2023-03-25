@@ -10,6 +10,7 @@ import time
 import fire
 
 class ans:
+    command_line = False
     def __init__(self, password, encrypt_key=None, trusted_users=[], self_ip_cache_time=3600, ip_cache_time=360, port=8000):
         self.encrypt_key = encrypt_key
         self.trusted_users = trusted_users
@@ -80,6 +81,8 @@ class ans:
                         the_ip = decrypt(each["data"]["app_data"], encrypt_key)
                         self.last_ip_time.append([user, the_ip , time.time()])
                         self.save_cache()
+                        if ans.command_line:
+                            self.close()
                         return the_ip
             time.sleep(5)
 
@@ -103,4 +106,5 @@ class ans:
         self.integration.close()
 
 def main():
+    ans.command_line = True
     fire.Fire(ans)
