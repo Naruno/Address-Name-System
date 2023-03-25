@@ -9,7 +9,7 @@ ANS is a decentralized system that maps blockchain addresses to dynamic IPs, mak
 - Uses encryption to protect sensitive information
 
 ## Installation
-You can install ANS by cloning the GitHub repository:
+You can install ANS by pip3:
 
 ```console
 pip3 install address_name_system
