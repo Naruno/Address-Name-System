@@ -1,0 +1,19 @@
+from setuptools import setup
+
+
+setup(name='address_name_system',
+version='0.1.0',
+description="""Mapping Addresses to Dynamic IPs, Simplified""",
+long_description_content_type="text/markdown",
+long_description="".join(open("README.md", encoding="utf-8").readlines()),
+url='https://github.com/Naruno/Address-Name-System',
+author="Naruno Developers",
+author_email='onur.atakan.ulusoy@naruno.org',
+license='MIT',
+packages=["address_name_system"],
+package_dir={'':'src'},
+entry_points = {
+    'console_scripts': ['mysystemmonitor=mysystemmonitor.mysystemmonitor:main'],
+},
+python_requires=">= 3",
+zip_safe=False)

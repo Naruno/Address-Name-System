@@ -30,9 +30,9 @@ For accessing your dynamic IPs over blockchain you should create a address_name_
 ```python
 from address_name_system import ans
 
-my_ans_server = ans()
+my_ans_server = ans("MyNarunoPass")
 
-my_ans_server.set_pass("mystrongpass")
+my_ans_server.set_encrypt_key("mystrongencrypt_key")
 
 my_ans_server.add_user("client_address")
 
@@ -45,9 +45,13 @@ To use ANS, you can call the ans.ip function with your blockchain address as the
 ```python
 from address_name_system import ans
 
-ip_address = ans.ip("server_address", "mystrongpass")
+my_ans_client = ans("MyNarunoPass")
+
+ip_address = my_ans_client.ip("server_address", "mystrongpass")
 
 print(ip_address)
+
+my_ans_client.close()
 ```
 
 This will return the dynamic IP address associated with your blockchain address.
