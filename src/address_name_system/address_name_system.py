@@ -69,6 +69,8 @@ class ans:
         for each in self.last_ip_time:
             if each[0] == user:
                 if time.time() - each[2] < self.ip_cache_time:
+                    if ans.command_line:
+                        self.close()                    
                     return each[1]
 
         self.integration.send("yourip", "hi", user)
