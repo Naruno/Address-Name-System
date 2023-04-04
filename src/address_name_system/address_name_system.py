@@ -1,3 +1,10 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 from urllib.request import urlopen
 import re as r
 from naruno.lib.encryption import encrypt, decrypt
@@ -16,7 +23,7 @@ class ans:
         self.trusted_users = trusted_users
         self.integration = Integration("ANS", password=password, port=port)
         self.last_self_ip_time = 0
-        self.self_ip_cache_time = self_ip_cache_time
+        self.self_ip_cache_time = self_ip_cache_time + self.integration.wait_amount
         self.last_ip_time = []
         self.ip_cache_time = ip_cache_time
         self.self_the_ip = None
