@@ -25,7 +25,7 @@ class ans:
         self.last_self_ip_time = 0
         self.self_ip_cache_time = self_ip_cache_time + self.integration.wait_amount
         self.last_ip_time = []
-        self.ip_cache_time = ip_cache_time
+        self.ip_cache_time = ip_cache_time + self.integration.wait_amount
         self.self_the_ip = None
 
         self.load_cache()
