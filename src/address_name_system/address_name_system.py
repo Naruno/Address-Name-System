@@ -5,16 +5,15 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-from urllib.request import urlopen
-import re as r
-from naruno.lib.encryption import encrypt, decrypt
-from naruno.apps.remote_app import Integration
-
-import pickle
 import contextlib
-
+import pickle
+import re as r
 import time
+from urllib.request import urlopen
+
 import fire
+from naruno.apps.remote_app import Integration
+from naruno.lib.encryption import decrypt, encrypt
 
 
 class ans:
