@@ -103,6 +103,8 @@ class ans:
         self.trusted_users.append(user)
 
     def run(self):
+        if self.encrypt_key == None:
+            raise Exception("Encryption Key not provided")
         while True:
             data = self.integration.get()
             if data != []:
