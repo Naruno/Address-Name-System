@@ -79,9 +79,9 @@ class ans:
         if time.time() - self.last_self_ip_time > self.self_ip_cache_time:
             self.last_self_ip_time = time.time()
             self.self_the_ip = encrypt(
-                r.compile(r"Address: (\d+\.\d+\.\d+\.\d+)")
-                .search(str(urlopen("http://checkip.dyndns.com/").read()))
-                .group(1),
+                r.compile(r"Address: (\d+\.\d+\.\d+\.\d+)").search(
+                    str(urlopen("http://checkip.dyndns.com/").read())).group(
+                        1),
                 self.encrypt_key,
             )
             self.save_cache()
@@ -126,7 +126,8 @@ class ans:
             if data != []:
                 for each in data:
                     if each["fromUser"] in self.trusted_users:
-                        self.integration.send("myip", self.self_ip, each["fromUser"])
+                        self.integration.send("myip", self.self_ip,
+                                              each["fromUser"])
             time.sleep(5)
 
     def close(self):
