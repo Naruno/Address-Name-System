@@ -20,7 +20,15 @@ import fire
 class ans:
     command_line = False
 
-    def __init__(self, password, encrypt_key=None, trusted_users=[], self_ip_cache_time=3600, ip_cache_time=360, port=8000):
+    def __init__(
+        self,
+        password,
+        encrypt_key=None,
+        trusted_users=[],
+        self_ip_cache_time=3600,
+        ip_cache_time=360,
+        port=8000,
+    ):
         self.encrypt_key = encrypt_key
         self.trusted_users = trusted_users
         self.integration = Integration("ANS", password=password, port=port)
@@ -71,8 +79,12 @@ class ans:
     def self_ip(self):
         if time.time() - self.last_self_ip_time > self.self_ip_cache_time:
             self.last_self_ip_time = time.time()
-            self.self_the_ip = encrypt(r.compile(r'Address: (\d+\.\d+\.\d+\.\d+)').search(
-                str(urlopen('http://checkip.dyndns.com/').read())).group(1), self.encrypt_key)
+            self.self_the_ip = encrypt(
+                r.compile(r"Address: (\d+\.\d+\.\d+\.\d+)")
+                .search(str(urlopen("http://checkip.dyndns.com/").read()))
+                .group(1),
+                self.encrypt_key,
+            )
             self.save_cache()
             return self.self_the_ip
         else:
@@ -115,8 +127,7 @@ class ans:
             if data != []:
                 for each in data:
                     if each["fromUser"] in self.trusted_users:
-                        self.integration.send(
-                            "myip", self.self_ip, each["fromUser"])
+                        self.integration.send("myip", self.self_ip, each["fromUser"])
             time.sleep(5)
 
     def close(self):
