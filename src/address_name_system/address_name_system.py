@@ -4,7 +4,6 @@
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
-
 import contextlib
 import pickle
 import re as r
@@ -13,7 +12,8 @@ from urllib.request import urlopen
 
 import fire
 from naruno.apps.remote_app import Integration
-from naruno.lib.encryption import decrypt, encrypt
+from naruno.lib.encryption import decrypt
+from naruno.lib.encryption import encrypt
 
 
 class ans:
