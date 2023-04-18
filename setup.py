@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='address_name_system',
-version='0.2.2',
+version='0.2.3',
 description="""Mapping Addresses to Dynamic IPs, Simplified""",
 long_description_content_type="text/markdown",
 include_package_data=True,
